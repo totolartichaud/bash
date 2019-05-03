@@ -1,0 +1,17 @@
+#!/bin/bash
+
+
+#SCRIPT
+
+if test -d /home/$USER/Musique ; then
+	dldir=/home/$USER/Musique/
+	echo "La musique sera enregistrée dans votre dossier Musique de votre session utilisateur"
+	echo $dldir
+else
+	dldir=/home/$USER/Bureau/Musique-youtube/
+	mkdir $dldir
+	echo "La musique sera enregistrée dans le dossier 'Musique-youtube' sur votre bureau"
+	echo $dldir
+fi
+
+youtube-dl -x --output "$dldir%(title)s.%(ext)s" $1

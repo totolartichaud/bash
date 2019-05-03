@@ -1,0 +1,33 @@
+#!/bin/bash
+entry=10000000
+max=1000
+min=0
+number=$(($RANDOM % max + 1))
+echo "Voici le jeu du juste prix"
+until [ $entry -eq $number ]
+	do	
+		read entry
+
+		if [[ $entry =~ ^[0-9]+$ ]]; then
+
+			if [ $entry -gt $max ]; then
+				echo "Le nombre doit être en dessous de 1000"
+			elif [ $entry -lt $min ]; then
+				echo "Le nombre doit être au dessus de 0"
+			elif [ $entry -gt $number ]; then
+				echo "c'est moins"
+			elif [ $entry -lt $number ]; then
+				echo "c'est plus"
+			else
+				echo "Bien joué"
+				exit 1
+		fi
+
+	else
+		if [ "$entre" = "" ]; then 
+			echo "vide"
+		else
+			echo "Error NaN"
+		fi
+	fi
+done
